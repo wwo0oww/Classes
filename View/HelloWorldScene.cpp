@@ -31,15 +31,15 @@ bool HelloWorld::init()
         return false;
     }
 	Obj*obj = new Obj();
-	obj->setHP(1);
-	float i = obj->getHP();
+	obj->SetHP(1);
+	float i = obj->GetHP();
 	
 	Biological*test = new Biological();
-	test->setID(0);
+	test->SetID(0);
 	std::vector<Obj*> deleteList;
 	for (int i=1;i < 10;i++) {
 		Biological*tmp = new Biological();
-		tmp->setID(i);
+		tmp->SetID(i);
 		test->AddChild(tmp);
 		if (i % 2 == 1) {
 			deleteList.push_back(tmp);

@@ -1,5 +1,96 @@
 #include "Obj.h"
 
+//获取ID
+int Obj::GetID() {
+	return this->ID;
+}
+//设置ID
+void Obj::SetID(int ID) {
+	this->ID = ID;
+}
+
+//获取血量
+float Obj::GetHP() {
+	return this->HP;
+}
+
+//设置血量
+float Obj::GetMP() {
+	return this->MP;
+}
+
+//获取魔量
+void Obj::SetHP(float HP) {
+	this->HP = HP;
+}
+
+//设置魔量
+void Obj::SetMP(float MP) {
+	this->MP = MP;
+}
+
+//获取X坐标
+float Obj::GetX() {
+	return this->X;
+}
+//设置X坐标
+void Obj::SetX(float X) {
+	 this->X = X;
+}
+
+//获取Y坐标
+float Obj::GetY() {
+	return this->Y;
+}
+//设置Y坐标
+void Obj::SetY(float Y) {
+	this->Y = Y;
+}
+
+//获取Z坐标
+float Obj::GetZ() {
+	return this->Z;
+}
+//设置Z坐标
+void Obj::SetZ(float Z) {
+	this->Z = Z;
+}
+
+//获取离地高度
+float Obj::GetHigh() {
+	return this->m_high;
+}
+//设置离地高度
+void Obj::SetHigh(float high) {
+	this->m_high = high;
+}
+
+//获取离地高度
+float Obj::GetBottomHigh() {
+	return this->m_bottomHigh;
+}
+//设置离地高度
+void Obj::SetBottomHigh(float bottomHigh) {
+	this->m_bottomHigh = bottomHigh;
+}
+
+//获取高度
+float Obj::GetH() {
+	return this->H;
+}
+//设置高度
+void Obj::SetH(float H){
+	this->H = H;
+}
+
+//获取宽度
+float Obj::GetW() {
+	return this->W;
+}
+//设置宽度
+void Obj::SetW(float W) {
+	this->W = W;
+}
 //从某个列表，以ID为识别，删除子项
 void Obj::RemoveNode(std::vector<Obj*>* src, std::vector<int> node) {
 	int deleteLength = node.size();
@@ -9,7 +100,7 @@ void Obj::RemoveNode(std::vector<Obj*>* src, std::vector<int> node) {
 	for (int i = 0; i < srcLength; ) {
 		bHas = false;
 		for (int j = 0; j < deleteLength; j++) {
-			if (node[j] == (*src)[i]->getID()) {//从要删列表中清除孩子节点
+			if (node[j] == (*src)[i]->GetID()) {//从要删列表中清除孩子节点
 				bHas = true;
 				node.erase(node.begin() + j);
 				deleteLength--;
@@ -27,6 +118,7 @@ void Obj::RemoveNode(std::vector<Obj*>* src, std::vector<int> node) {
 	}
 }
 void Obj::BeforeRemoveNode() {
+	printf("Obj:BeforeRemoveNode");
 }
 
 void Obj::die() {}

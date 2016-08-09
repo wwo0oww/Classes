@@ -30,4 +30,5 @@ public:
 	virtual void die();
 
 	virtual void BeforeRemoveNode();
+	
 };
