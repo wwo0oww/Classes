@@ -1,28 +1,61 @@
 #include "Obj.h"
 
+template <typename T>
+T Obj::lambda_CS(T param, std::function<T(Obj* context, T param)>func) {
+#ifdef WIN_32
+	EnterCriticalSection(&this->cs);
+#endif
+	if (this == NULL) {
+		
+	}
+	return func(this, param);
+
+#ifdef WIN_32
+	LeaveCriticalSection(&this->cs);
+#endif
+}
+//对象公有初始化 部分
+void Obj::init() {
+	InitializeCriticalSection(&this->cs);
+}
+//
+Obj::Obj() {
+	this->init();
+}
+
 //获取ID
 int Obj::GetID() {
-	return this->ID;
+	return this->lambda_CS(0,(std::function<int(Obj*,int)>)
+		[](Obj* context, int param)->int {return context->ID; }
+		);
 }
 //设置ID
 void Obj::SetID(int ID) {
-	this->ID = ID;
+	 this->lambda_CS(ID, (std::function<int(Obj*, int)>)
+		[](Obj* context, int param)->int { context->ID = param; return 0; }
+	);
 }
 
 //获取血量
 float Obj::GetHP() {
-	return this->HP;
+	this->lambda_CS(ID, (std::function<int(Obj*, int)>)
+		[](Obj* context, int param)->int { return context->HP; }
+	);
 }
 
 //设置血量
-float Obj::GetMP() {
-	return this->MP;
-}
-
-//获取魔量
 void Obj::SetHP(float HP) {
 	this->HP = HP;
 }
+
+
+//获取魔量
+float Obj::GetMP() {
+	this->lambda_CS(0, (std::function<int(Obj*, int)>)
+		[](Obj* context, int param)->int { return context->MP; }
+	);
+}
+
 
 //设置魔量
 void Obj::SetMP(float MP) {

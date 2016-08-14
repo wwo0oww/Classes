@@ -2,6 +2,7 @@
 #include"cocos2d.h"
 #include"Model\data.h"
 #include<iostream>
+#include<functional>
 class Obj {
 	//属性
 private:
@@ -25,10 +26,18 @@ private:
 	float H;
 	//占地宽度
 	float W;
+
+	//多线程 见 数据 互斥访问  临界区
+	CRITICAL_SECTION cs;
 public:
 	//方法
 private:
+	//对象公有初始化 部分
+	void init();
 public:
+	Obj();
+	template <class T>
+	T lambda_CS(T param, std::function<T(Obj* context, T param)>func);
 	//属性操作
 	//获取ID
 	virtual int GetID();
@@ -79,12 +88,13 @@ public:
 	virtual float GetW();
 	//设置宽度
 	virtual void SetW(float);
-
+	//移除节点 要移除的源列表 要从源列表移除的ID列表 
 	virtual void RemoveNode(std::vector<Obj*>*, std::vector<int>);
-	
+	//移除前要做的事
 	virtual void  BeforeRemoveNode();
-
+	//角色死亡
 	virtual void die();
-
+	//角色 活动
 	virtual void run();//对象运行
+
 };
