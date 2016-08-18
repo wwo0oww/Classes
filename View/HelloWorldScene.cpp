@@ -18,9 +18,6 @@ Scene* HelloWorld::scene()
     // return the scene
     return scene;
 }
-void HelloWorld::move(float dt)
-{
-}
 // on "init" you need to initialize your instance
 bool HelloWorld::init()
 {
@@ -30,22 +27,9 @@ bool HelloWorld::init()
     {
         return false;
     }
-	Obj*obj = new Obj();
-	obj->SetHP(1);
-	float i = obj->GetHP();
 	
 	Biological*test = new Biological();
-	test->SetID(0);
-	std::vector<Obj*> deleteList;
-	for (int i=1;i < 10;i++) {
-		Biological*tmp = new Biological();
-		tmp->SetID(i);
-		test->AddChild(tmp);
-		if (i % 2 == 1) {
-			deleteList.push_back(tmp);
-		}
-	}
-	test->RemoveChildren(deleteList);
+
 
     auto visibleSize = Director::getInstance()->getVisibleSize();
     auto origin = Director::getInstance()->getVisibleOrigin();
@@ -60,7 +44,6 @@ bool HelloWorld::init()
                                         CC_CALLBACK_1(HelloWorld::menuCloseCallback,this));
     
     closeItem->setPosition(Vec2(0,0));
-	schedule(schedule_selector(HelloWorld::move),0.1f);
 
     // create menu, it's an autorelease object
     auto menu = Menu::create(closeItem, nullptr);

@@ -24,23 +24,17 @@ Obj::Obj() {
 }
 
 //获取ID
-int Obj::GetID() {
-	return this->lambda_CS(0,(std::function<int(Obj*,int)>)
-		[](Obj* context, int param)->int {return context->ID; }
-		);
+long Obj::GetID() {
+	return this->ID;
 }
 //设置ID
-void Obj::SetID(int ID) {
-	 this->lambda_CS(ID, (std::function<int(Obj*, int)>)
-		[](Obj* context, int param)->int { context->ID = param; return 0; }
-	);
+void Obj::SetID(long ID) {
+	this->ID = ID;
 }
 
 //获取血量
 float Obj::GetHP() {
-	this->lambda_CS(ID, (std::function<int(Obj*, int)>)
-		[](Obj* context, int param)->int { return context->HP; }
-	);
+	return this->HP;
 }
 
 //设置血量
@@ -51,9 +45,7 @@ void Obj::SetHP(float HP) {
 
 //获取魔量
 float Obj::GetMP() {
-	this->lambda_CS(0, (std::function<int(Obj*, int)>)
-		[](Obj* context, int param)->int { return context->MP; }
-	);
+	return this->MP;
 }
 
 
@@ -158,4 +150,7 @@ void Obj::die() {}
 
 void Obj::run() {
 
+}
+void Obj::Method(std::string methName, void* param) {
+	
 }

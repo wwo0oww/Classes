@@ -7,7 +7,7 @@ class Obj {
 	//属性
 private:
 	//唯一标识
-	int ID;
+	long ID;
 	//血量
 	float HP;
 	//魔量
@@ -29,20 +29,24 @@ private:
 
 	//多线程 见 数据 互斥访问  临界区
 	CRITICAL_SECTION cs;
+
+	//
+
 public:
+	std::map<int, Obj*>id_obj;
+
 	//方法
-private:
+protected:
 	//对象公有初始化 部分
 	void init();
-public:
 	Obj();
 	template <class T>
 	T lambda_CS(T param, std::function<T(Obj* context, T param)>func);
 	//属性操作
 	//获取ID
-	virtual int GetID();
+	virtual long GetID();
 	//设置ID
-	virtual void SetID(int);
+	virtual void SetID(long);
 
 	//获取血量
 	virtual float GetHP();
@@ -96,5 +100,7 @@ public:
 	virtual void die();
 	//角色 活动
 	virtual void run();//对象运行
+public:
+	 static void Method(std::string ,void* );
 
 };

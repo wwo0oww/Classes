@@ -10,7 +10,6 @@ public:
 	cocos2d::Sprite *sprites[600][400];
 public:
     virtual bool init() override;
-	void move(float dt);
     static cocos2d::Scene* scene();
 	
     // a selector callback
