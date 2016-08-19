@@ -39,7 +39,7 @@ void  Biological::RemoveChildren(std::vector<int>children) {
 }
 
 void Biological::BeforeRemoveNode(int childId) {
-	std::map<int, Obj*>::iterator it = id_obj.find(childId);
+	//std::map<int, Obj*>::iterator it = this-id_obj.find(childId);
 	//(*it).second->
 }
 

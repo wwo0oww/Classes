@@ -33,13 +33,12 @@ private:
 	//
 
 public:
-	std::map<int, Obj*>id_obj;
+	
 
 	//方法
 protected:
 	//对象公有初始化 部分
 	void init();
-	Obj();
 	template <class T>
 	T lambda_CS(T param, std::function<T(Obj* context, T param)>func);
 	//属性操作
@@ -101,6 +100,6 @@ protected:
 	//角色 活动
 	virtual void run();//对象运行
 public:
-	 static void Method(std::string ,void* );
-
+	  void* Method(std::string ,void* = NULL );
+	  Obj();
 };

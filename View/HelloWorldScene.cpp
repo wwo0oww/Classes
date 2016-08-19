@@ -1,6 +1,7 @@
 #include "HelloWorldScene.h"
 #include "../System/AppMacros.h"
 #include "../Model/Obj/Biological/Biological.h"
+#include"../Controller/ViewController.h"
 USING_NS_CC;
 
 
@@ -27,10 +28,6 @@ bool HelloWorld::init()
     {
         return false;
     }
-	
-	Biological*test = new Biological();
-
-
     auto visibleSize = Director::getInstance()->getVisibleSize();
     auto origin = Director::getInstance()->getVisibleOrigin();
     /////////////////////////////

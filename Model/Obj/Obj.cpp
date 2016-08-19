@@ -151,6 +151,109 @@ void Obj::die() {}
 void Obj::run() {
 
 }
-void Obj::Method(std::string methName, void* param) {
+void* Obj::Method(std::string methName, void* param) {
+	/*
+
 	
+	//移除节点 要移除的源列表 要从源列表移除的ID列表 
+	virtual void RemoveNode(std::vector<Obj*>*, std::vector<int>);
+	//移除前要做的事
+	virtual void  BeforeRemoveNode();
+	//角色死亡
+	virtual void die();
+	//角色 活动
+	virtual void run();//对象运行*/
+	if (methName == "GetID") {
+		ClassData::ObjData *data = new ClassData::ObjData(this->GetID());
+		return data;
+	}
+	if (methName == "SetID") {
+		this->SetID(((ClassData::ObjData*)param)->_int);
+		return NULL;
+	}
+	if (methName == "GetHP") {
+		ClassData::ObjData *data = new ClassData::ObjData(this->GetHP());
+		return data;
+	}
+	if (methName == "SetHP") {
+		this->SetHP(((ClassData::ObjData*)param)->_float);
+		return NULL;
+	}
+	if (methName == "GetMP") {
+		ClassData::ObjData *data = new ClassData::ObjData(this->GetMP());
+		return data;
+	}
+	if (methName == "SetMP") {
+		this->SetMP(((ClassData::ObjData*)param)->_float);
+		return NULL;
+	}
+	if (methName == "GetX") {
+		ClassData::ObjData *data = new ClassData::ObjData(this->GetX());
+		return data;
+	}
+	if (methName == "SetX") {
+		this->SetX(((ClassData::ObjData*)param)->_float);
+		return NULL;
+	}
+	if (methName == "GetY") {
+		ClassData::ObjData *data = new ClassData::ObjData(this->GetY());
+		return data;
+	}
+	if (methName == "SetY") {
+		this->SetY(((ClassData::ObjData*)param)->_float);
+		return NULL;
+	}
+	if (methName == "GetZ") {
+		ClassData::ObjData *data = new ClassData::ObjData(this->GetZ());
+		return data;
+	}
+	if (methName == "SetZ") {
+		this->SetZ(((ClassData::ObjData*)param)->_float);
+		return NULL;
+	}
+	if (methName == "GetHigh") {
+		ClassData::ObjData *data = new ClassData::ObjData(this->GetHigh());
+		return data;
+	}
+	if (methName == "SetHigh") {
+		this->SetHigh(((ClassData::ObjData*)param)->_float);
+		return NULL;
+	}
+
+	if (methName == "GetBottomHigh") {
+		ClassData::ObjData *data = new ClassData::ObjData(this->GetBottomHigh());
+		return data;
+	}
+	if (methName == "SetBottomHigh") {
+		this->SetBottomHigh(((ClassData::ObjData*)param)->_float);
+		return NULL;
+	}
+
+	if (methName == "GetH") {
+		ClassData::ObjData *data = new ClassData::ObjData(this->GetH());
+		return data;
+	}
+	if (methName == "SetH") {
+		this->SetH(((ClassData::ObjData*)param)->_float);
+		return NULL;
+	}
+
+	if (methName == "GetW") {
+		ClassData::ObjData *data = new ClassData::ObjData(this->GetW());
+		return data;
+	}
+	if (methName == "SetW") {
+		this->SetW(((ClassData::ObjData*)param)->_float);
+		return NULL;
+	}
+
+	if (methName == "GetW") {
+		ClassData::ObjData *data = new ClassData::ObjData(this->GetW());
+		return data;
+	}
+	if (methName == "SetW") {
+		this->SetW(((ClassData::ObjData*)param)->_float);
+		return NULL;
+	}
+	if (methName == "RemoveNode") {}
 }

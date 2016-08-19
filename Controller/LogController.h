@@ -1,7 +1,6 @@
 #pragma once
 #include"../Model/data.h"
-#include"Singleton.h"
-class LogControoler:Singleton {
+class LogControoler{
 // Ù–‘
 private:
 
