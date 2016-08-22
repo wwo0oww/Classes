@@ -1,5 +1,6 @@
 #pragma once
 #define WIN_32
+#include"Model\data.h"
 #include"Model\Obj\Obj.h"
 namespace EnumData {
 	enum LogType
@@ -12,7 +13,7 @@ namespace ClassData {
 	class ObjData {
 	public:
 		struct RemoveNodeData {
-			std::vector<Obj*>* srcList;
+			std::vector<Obj*> srcList;
 			std::vector<int> deleteList;
 		};
 		struct RemoveNodeData _RemoveNodeData;

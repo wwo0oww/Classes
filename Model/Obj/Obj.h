@@ -1,6 +1,6 @@
 #pragma once
 #include"cocos2d.h"
-#include"Model\data.h"
+
 #include<iostream>
 #include<functional>
 class Obj {

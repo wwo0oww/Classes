@@ -1,20 +1,4 @@
-#pragma once
-#include<stdio.h>
-#include"Model\data.h"
-#include<Windows.h>
-class MyLock {
-private:
-#ifdef WIN_32
-	CRITICAL_SECTION lock;
-#endif // WIN_32
-public:
-	MyLock();
-	void Init();
-	void Lock();
-	void UnLock();
-	void Delete();
-	~MyLock();
-};
+#include"MyLock.h"
 void MyLock::Init() {
 #ifdef WIN_32
 	InitializeCriticalSection(&this->lock);
@@ -25,7 +9,7 @@ void MyLock::Lock() {
 	EnterCriticalSection(&this->lock);
 #endif
 }
-MyLock::MyLock(){
+MyLock::MyLock() {
 	this->Init();
 }
 void MyLock::UnLock() {

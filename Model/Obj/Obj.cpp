@@ -1,4 +1,5 @@
 #include "Obj.h"
+#include"Model\data.h"
 
 template <typename T>
 T Obj::lambda_CS(T param, std::function<T(Obj* context, T param)>func) {
