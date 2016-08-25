@@ -30,7 +30,7 @@ void  Biological::RemoveChildren(std::vector<int>children) {
 	for (std::vector<int>::iterator it_delete = children.begin();it_delete != children.end();it_delete++) {
 		for (std::vector<int>::iterator it = this->m_children.begin();it != this->m_children.end();it++) {
 			if (*it_delete == *it) {
-				BeforeRemoveNode(*it);
+				BeforeRemoveChildren(*it);
 				this->m_children.erase(it);
 				break;
 			}
@@ -38,7 +38,7 @@ void  Biological::RemoveChildren(std::vector<int>children) {
 	}
 }
 
-void Biological::BeforeRemoveNode(int childId) {
+void Biological::BeforeRemoveChildren(int childId) {
 	//std::map<int, Obj*>::iterator it = this-id_obj.find(childId);
 	//(*it).second->
 }

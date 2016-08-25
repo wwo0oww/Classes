@@ -13,7 +13,7 @@ namespace ClassData {
 	class ObjData {
 	public:
 		struct RemoveNodeData {
-			std::vector<Obj*> srcList;
+			std::vector<Obj*>* srcList;
 			std::vector<int> deleteList;
 		};
 		struct RemoveNodeData _RemoveNodeData;

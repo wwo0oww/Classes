@@ -94,7 +94,7 @@ protected:
 	//移除节点 要移除的源列表 要从源列表移除的ID列表 
 	virtual void RemoveNode(std::vector<Obj*>*, std::vector<int>);
 	//移除前要做的事
-	virtual void  BeforeRemoveNode();
+	virtual void  BeforeRemoveChildren();
 	//角色死亡
 	virtual void die();
 	//角色 活动

@@ -134,7 +134,7 @@ void Obj::RemoveNode(std::vector<Obj*>* src, std::vector<int> node) {
 			}
 		}
 		if (bHas) {
-			this->BeforeRemoveNode();
+			this->BeforeRemoveChildren();
 			(*src).erase((*src).begin() + i);
 			srcLength--;
 		}
@@ -143,8 +143,8 @@ void Obj::RemoveNode(std::vector<Obj*>* src, std::vector<int> node) {
 		}
 	}
 }
-void Obj::BeforeRemoveNode() {
-	printf("Obj:BeforeRemoveNode");
+void Obj::BeforeRemoveChildren() {
+	printf("Obj:BeforeRemoveChildren");
 }
 
 void Obj::die() {}
@@ -256,5 +256,16 @@ void* Obj::Method(std::string methName, void* param) {
 		this->SetW(((ClassData::ObjData*)param)->_float);
 		return NULL;
 	}
-	if (methName == "RemoveNode") {}
+	if (methName == "RemoveNode") {
+		this->RemoveNode(((ClassData::ObjData*)param)->_RemoveNodeData.srcList, ((ClassData::ObjData*)param)->_RemoveNodeData.deleteList);
+		return NULL;
+	}
+	if (methName == "die") {
+		this->die();
+		return NULL;
+	}
+	if (methName == "run") {
+		this->run();
+		return NULL;
+	}
 }
