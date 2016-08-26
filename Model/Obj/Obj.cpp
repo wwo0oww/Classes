@@ -54,6 +54,15 @@ float Obj::GetMP() {
 void Obj::SetMP(float MP) {
 	this->MP = MP;
 }
+//获取postion
+ Obj::Position* Obj::Getpostion() {
+	 return this->postion;
+}
+//设置postion
+ void Obj::Setpostion(Position position) {
+	 this->postion->x = position.x;
+	 this->postion->y = position.y;
+ }
 
 //获取X坐标
 float Obj::GetX() {
@@ -152,18 +161,9 @@ void Obj::die() {}
 void Obj::run() {
 
 }
+//暴露的调用对象方法的接口
 void* Obj::Method(std::string methName, void* param) {
-	/*
-
 	
-	//移除节点 要移除的源列表 要从源列表移除的ID列表 
-	virtual void RemoveNode(std::vector<Obj*>*, std::vector<int>);
-	//移除前要做的事
-	virtual void  BeforeRemoveNode();
-	//角色死亡
-	virtual void die();
-	//角色 活动
-	virtual void run();//对象运行*/
 	if (methName == "GetID") {
 		ClassData::ObjData *data = new ClassData::ObjData(this->GetID());
 		return data;

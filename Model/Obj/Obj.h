@@ -5,6 +5,11 @@
 #include<functional>
 class Obj {
 	//属性
+public:
+	struct Position {
+		float x;
+		float y;
+	}*PPosition;
 private:
 	//唯一标识
 	long ID;
@@ -12,6 +17,7 @@ private:
 	float HP;
 	//魔量
 	float MP;
+	Position* postion;
 	//x坐标
 	float X;
 	//y坐标
@@ -36,12 +42,15 @@ public:
 	
 
 	//方法
-protected:
 	//对象公有初始化 部分
 	void init();
 	template <class T>
 	T lambda_CS(T param, std::function<T(Obj* context, T param)>func);
 	//属性操作
+	//获取postion
+	virtual Position* Getpostion();
+	//设置postion
+	virtual void Setpostion(Position);
 	//获取ID
 	virtual long GetID();
 	//设置ID
@@ -100,6 +109,7 @@ protected:
 	//角色 活动
 	virtual void run();//对象运行
 public:
-	  void* Method(std::string ,void* = NULL );
-	  Obj();
+	//暴露的调用对象方法的接口
+	virtual void* Method(std::string ,void* = NULL );
+	Obj();
 };

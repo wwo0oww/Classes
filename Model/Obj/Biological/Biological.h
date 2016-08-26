@@ -40,7 +40,7 @@ private:
 	//获取目标ID
 	virtual long GetaimID();
 	//设置目标ID
-	virtual void SetaimID();
+	virtual void SetaimID(long);
 	//获取目标坐标
 	virtual std::map<float, float>GetaimPositoin();
 	//设置目标坐标
@@ -49,8 +49,17 @@ private:
 	virtual std::map<long, int>GethateObjs();
 	//设置仇恨对象列表
 	virtual void SethateObjs(std::map<long, int>);
+	//设置仇恨对象
+	virtual void SethateObj(long,int);
 	//获取恐惧对象列表
-	std::map<long, int>GetfearObjs();
+	virtual std::map<long, int>GetfearObjs();
 	//设置恐惧对象列表
-	void GetfearObjs(std::map<long, int>);
+	virtual void SetfearObjs(std::map<long, int>);
+	//设置恐惧对象
+	virtual void SetfearObj(long, int);
+
+public:
+	//暴露的调用对象方法的接口
+	virtual void* Method(std::string, void* = NULL);
+
 };
