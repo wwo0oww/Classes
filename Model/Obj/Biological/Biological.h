@@ -20,6 +20,7 @@ public:
 
 	//方法
 private:
+public:
 	//获取所有子类成员
 	std::vector<int>GetChildren();
 	//增加孩子节点
@@ -33,6 +34,8 @@ private:
 	virtual void RemoveChildren(std::vector<int>children);
 	//角色死亡
 	virtual void die();
+
+	virtual void run();
 	//
 	virtual void BeforeRemoveChildren(int);
 	//移出父亲节点
@@ -58,7 +61,10 @@ private:
 	//设置恐惧对象
 	virtual void SetfearObj(long, int);
 
-public:
+	virtual void setDirection(Direction fx);
+
+	virtual Direction getDirection() ;
+
 	//暴露的调用对象方法的接口
 	virtual void* Method(std::string, void* = NULL);
 

@@ -158,6 +158,14 @@ void Obj::BeforeRemoveChildren() {
 
 void Obj::die() {}
 
+void Obj::setDirection(Direction fx) {
+	this->next_fx = fx;
+}
+
+Direction Obj::getDirection() {
+	return this->fx;
+}
+
 void Obj::run() {
 
 }

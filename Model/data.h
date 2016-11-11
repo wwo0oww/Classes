@@ -17,6 +17,7 @@ namespace ClassData {
 			std::vector<int> deleteList;
 		};
 		struct RemoveNodeData _RemoveNodeData;
+		Direction _direction;
 		int _int;
 		float _float;
 		long _long;
@@ -28,6 +29,9 @@ namespace ClassData {
 		}
 		ObjData(long p) {
 			this->_long = p;
+		}
+		ObjData(Direction p) {
+			this->_direction = p;
 		}
 		/*ObjData(RemoveNodeData p) {
 			this->_RemoveNodeData = p;

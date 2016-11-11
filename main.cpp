@@ -1,5 +1,5 @@
 #include "main.h"
-#include "System/AppDelegate.h"
+#include "Core/AppDelegate.h"
 
 USING_NS_CC;
 

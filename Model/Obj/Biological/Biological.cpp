@@ -75,19 +75,31 @@ void Biological::SethateObjs(std::map<long, int> hateObjs) {
 	
 }
 //设置仇恨对象
-void Biological::SethateObjs(std::map<long, int> hateObjs) {
+void Biological::SethateObj(long ID, int offset) {
 
 }
 //获取恐惧对象列表
 std::map<long, int>Biological::GetfearObjs() {
+	return this->hateObjs;
 }
 //设置恐惧对象列表
 void Biological::SetfearObjs(std::map<long, int>) {
 
 }
 //设置恐惧对象
-void Biological::SetfearObjs(std::map<long, int>) {
+void Biological::SetfearObj(long, int) {
 
+}
+
+void Biological::setDirection(Direction fx) {
+	Obj::setDirection(fx);
+}
+
+Direction Biological::getDirection() {
+	return Obj::getDirection();
+}
+void Biological::run() {
+	Obj::run();
 }
 //暴露的调用对象方法的接口
 void* Biological::Method(std::string methName, void* param) {

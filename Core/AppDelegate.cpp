@@ -5,6 +5,7 @@
 
 #include "../View/HelloWorldScene.h"
 #include "AppMacros.h"
+#include"Controller\GameController.h"
 
 //Uncomment the following line to use localize manager
 //#include "editor-support/cocostudio/LocalizationManager.h"
@@ -102,11 +103,14 @@ bool AppDelegate::applicationDidFinishLaunching()
     // set FPS. the default value is 1.0/60 if you don't call this
     director->setAnimationInterval(1.0f / 60);
 
+	GameController::getInstance()->init();
+
+	GameController::getInstance()->start();
     // create a scene. it's an autorelease object
-    auto scene = HelloWorld::scene();
+    //auto scene = HelloWorld::scene();
 
     // run
-    director->runWithScene(scene);
+    //director->runWithScene(scene);
 
     return true;
 }

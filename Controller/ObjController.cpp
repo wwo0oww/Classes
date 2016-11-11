@@ -6,11 +6,11 @@ ObjController::ObjController() {
 //初始化ID
 void ObjController::InitID() {
 }
-//获取单例
-ObjController* ObjController::GetInstance() {
-	static ObjController* instance = new ObjController();
-	return instance;
-}
+////获取单例
+//ObjController* ObjController::GetInstance() {
+//	static ObjController* instance = new ObjController();
+//	return instance;
+//}
 //获取ID
 long ObjController::GetID() {
 	return this->ID;

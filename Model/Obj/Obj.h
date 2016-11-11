@@ -3,6 +3,17 @@
 
 #include<iostream>
 #include<functional>
+enum Direction
+{
+	UP,
+	DOWN,
+	RIGHT,
+	LEFT,
+	UP_RIGHT,
+	UP_LEFT,
+	DOWN_RIGHT,
+	DOWN_LEFT,
+};
 class Obj {
 	//属性
 public:
@@ -37,7 +48,9 @@ private:
 	CRITICAL_SECTION cs;
 
 	//
+	Direction fx;
 
+	Direction next_fx;
 public:
 	
 
@@ -108,8 +121,16 @@ public:
 	virtual void die();
 	//角色 活动
 	virtual void run();//对象运行
-public:
+
+	virtual void setDirection(Direction fx);
+
+	virtual Direction getDirection();
+
 	//暴露的调用对象方法的接口
 	virtual void* Method(std::string ,void* = NULL );
+
 	Obj();
+
+
+
 };
