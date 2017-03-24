@@ -1,16 +1,17 @@
 #pragma once
-#include "cocos2d.h"
-#include "ui/UIWidget.h"
-USING_NS_CC;
-using namespace ui;
+#include"Model\data.h"
+
 class MainScene : public cocos2d::Layer {
+private:
+	
 public:
-public:
+	Label* label;
+	std::string lab_str;
+	std::mutex lab_str_cs;
 	virtual bool init() override;
 	static cocos2d::Scene* scene();
-	CCSprite* sprite;
-	int count = 0;
-	void test(float dt);
+	virtual void update(float delta) override;
 	// implement the "static create()" method manually
 	CREATE_FUNC(MainScene);
+
 };

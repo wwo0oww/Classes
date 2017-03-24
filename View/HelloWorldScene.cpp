@@ -1,7 +1,7 @@
 #include "HelloWorldScene.h"
 #include "../Core/AppMacros.h"
 #include "../Model/Obj/Biological/Biological.h"
-#include"../Controller/ViewController.h"
+#include"Core\UI\Progress.h"
 USING_NS_CC;
 
 
@@ -64,13 +64,35 @@ bool HelloWorld::init()
 
     // add "HelloWorld" splash screen"
     auto sprite = Sprite::create("HelloWorld.png");
-
+	
     // position the sprite on the center of the screen
     sprite->setPosition(Vec2(visibleSize / 2) + origin);
 
     // add the sprite as a child to this layer
-    this->addChild(sprite);
+   // this->addChild(sprite);
     
+	CCSpriteFrame *frame = CCSpriteFrameCache::sharedSpriteFrameCache()->spriteFrameByName("tank_str_m_d (1).png");
+	CCSprite* p1 = CCSprite::createWithSpriteFrame(frame);
+	p1->setPosition(Vec2(50,50) + origin);
+	//p1->setp
+	p1->setAnchorPoint(Point(0.5, 0.5));
+	this->addChild(p1);
+	Progress* _progress =new Progress();
+	_progress->initbg(CCSprite::create());
+	_progress->initfill(CCSprite::create());
+	
+	_progress->progress->setPosition(Vec2(160, 160) + origin);
+	_progress->setProgress(10);
+	this->addChild(_progress->progress);
+	_progress->progress->setRotation(90);
+
+	CCSprite* p2 = CCSprite::createWithSpriteFrame(frame);
+	p2->setPosition(Vec2(60, 60) + origin);
+	p2->setScaleY(-1);
+	//p1->setp
+	p2->setAnchorPoint(Point(0.5, 0.5));
+	this->addChild(p2);
+
     return true;
 }
 

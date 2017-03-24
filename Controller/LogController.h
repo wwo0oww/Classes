@@ -1,5 +1,5 @@
 #pragma once
-#include"../Model/data.h"
+#include"Core\Controller.h"
 class LogControoler{
 // Ù–‘
 private:

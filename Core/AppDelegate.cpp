@@ -34,10 +34,12 @@ bool AppDelegate::applicationDidFinishLaunching()
     auto director = Director::getInstance();
     auto glview = director->getOpenGLView();
     if(!glview) {
-        glview = GLViewImpl::create("Cpp Empty Test");
+        glview = GLViewImpl::create(GameController::gameName);
+		glview->setDesignResolutionSize(GameController::screenPixW, GameController::screenPixH, kResolutionShowAll);
+		glview->setFrameSize(GameController::screenPixW,GameController::screenPixH);
         director->setOpenGLView(glview);
     }
-
+	
     director->setOpenGLView(glview);
 
     // Set the design resolution
@@ -103,9 +105,9 @@ bool AppDelegate::applicationDidFinishLaunching()
     // set FPS. the default value is 1.0/60 if you don't call this
     director->setAnimationInterval(1.0f / 60);
 
-	GameController::getInstance()->init();
+	GameController::Init();
 
-	GameController::getInstance()->start();
+	GameController::Start();
     // create a scene. it's an autorelease object
     //auto scene = HelloWorld::scene();
 

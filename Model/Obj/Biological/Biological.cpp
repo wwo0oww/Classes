@@ -1,5 +1,23 @@
 #include"Biological.h"
 #include"Model\data.h"
+
+void Biological::initSpriteFrame(void* spriteFrameInfo) {
+	Obj::initSpriteFrame(spriteFrameInfo);
+}
+void Biological::init() {
+
+	Obj::init();
+}
+
+void Biological::dearCollision(Obj*) {
+	
+}
+void Biological::dearSonDeath(Obj*obj) {
+	Obj::dearSonDeath(obj);
+}
+//void Biological::changeFX(Direction fx) {
+//	Obj::changeFX(fx);
+//}
 //获取所有孩子成员
 std::vector<int> Biological::GetChildren() {
 	return this->m_children;
@@ -86,6 +104,13 @@ std::map<long, int>Biological::GetfearObjs() {
 void Biological::SetfearObjs(std::map<long, int>) {
 
 }
+void Biological::dearShowObj() {
+	Obj::dearShowObj();
+}
+
+void Biological::ShowObj() {
+	Obj::ShowObj();
+}
 //设置恐惧对象
 void Biological::SetfearObj(long, int) {
 
@@ -94,12 +119,27 @@ void Biological::SetfearObj(long, int) {
 void Biological::setDirection(Direction fx) {
 	Obj::setDirection(fx);
 }
+void Biological::setStatus(Status status) {
+	Obj::setStatus(status);
+}
+void Biological::afterAttack() {
+	return Obj::afterAttack();
+}
+
+void Biological::sendBullet(Obj*) {}
+
+
 
 Direction Biological::getDirection() {
 	return Obj::getDirection();
 }
-void Biological::run() {
-	Obj::run();
+Biological::Biological() {
+}
+void Biological::run(int tid) {
+	Obj::run(tid);
+}
+int Biological::GetZOrderY() {
+	return Obj::GetZOrderY();
 }
 //暴露的调用对象方法的接口
 void* Biological::Method(std::string methName, void* param) {
@@ -111,5 +151,6 @@ void* Biological::Method(std::string methName, void* param) {
 		this->SetID(((ClassData::ObjData*)param)->_int);
 		return NULL;
 	}*/
+	Obj::Method(methName, param);
 	return NULL;
 }

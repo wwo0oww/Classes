@@ -1,12 +1,17 @@
 #pragma once
-#include<stdio.h>
+
 #include"Model\data.h"
-#include<Windows.h>
+
 class MyLock {
 private:
 #ifdef WIN_32
 	CRITICAL_SECTION lock;
+#else
+#ifdef ANDROID
+	mutex*lock;
+#endif
 #endif // WIN_32
+
 public:
 	MyLock();
 	void Init();

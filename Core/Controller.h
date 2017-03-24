@@ -1,4 +1,7 @@
 #pragma once
+#include"Model\data.h"
+#include"Core\MyLock.h"
+
 class Controller
 {
 public:

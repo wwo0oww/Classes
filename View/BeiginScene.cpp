@@ -1,7 +1,6 @@
 #include"BeiginScene.h"
 #include "../Core/AppMacros.h"
 #include "../Model/Obj/Biological/Biological.h"
-#include"../Controller/ViewController.h"
 #include "cocos2d.h"
 #include "ui\UIButton.h"
 #include"Controller\EventController.h"
@@ -134,13 +133,13 @@ bool BeiginScene::init()
 }
 
 void BeiginScene::onSinglePlayer(Ref *pSender, TouchEventType type){
-	EventController::getInstance()->EventListener(pSender, type,EventController::Key::SINGLEPLAYER);
+	EventController::EventListener(pSender, type,EventController::Key::SINGLEPLAYER);
 }
 void BeiginScene::onMultiPlayer(Ref *pSender, TouchEventType type) {
-	EventController::getInstance()->EventListener(pSender, type, EventController::Key::SINGLEPLAYER);
+	EventController::EventListener(pSender, type, EventController::Key::SINGLEPLAYER);
 }
 void BeiginScene::onSetting(Ref *pSender, TouchEventType type) {
-	EventController::getInstance()->EventListener(pSender, type, EventController::Key::SINGLEPLAYER);
+	EventController::EventListener(pSender, type, EventController::Key::SINGLEPLAYER);
 }
 
 void BeiginScene::menuCloseCallback(Ref* sender)
